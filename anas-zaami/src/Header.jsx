@@ -109,7 +109,7 @@ export function Header() {
           <Menu />
         </div>
         <button className="cursor-pointer hover:opacity-80 duration-300" >
-          <img src="\public\download.png" className="h-5 hidden md:block" />
+          <img src="\assets\animations\icons\notification.png" className="h-5 hidden md:block" />
         </button>
       </div>
     </header>
