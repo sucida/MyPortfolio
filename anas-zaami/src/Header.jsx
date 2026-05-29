@@ -1,6 +1,7 @@
 import "./Header.css";
 import { useState } from "react";
 import Menu from "./components/Menu.jsx";
+import notificationIcon from "./assets/animations/icons/notification.png";
 export function Header() {
   const [show,setShow] = useState(false);
   return (
@@ -109,7 +110,7 @@ export function Header() {
           <Menu />
         </div>
         <button className="cursor-pointer hover:opacity-80 duration-300" >
-          <img src="\assets\animations\icons\notification.png" className="h-5 hidden md:block" />
+          <img src={notificationIcon} className="h-5 hidden md:block" alt="Notifications" />
         </button>
       </div>
     </header>
