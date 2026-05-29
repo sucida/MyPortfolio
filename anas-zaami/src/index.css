@@ -5,6 +5,9 @@
 *::after {
   box-sizing: border-box;
 }
+*{
+  outline: none;
+}
 
 .loader-dot {
   width: 5px;
