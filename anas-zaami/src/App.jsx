@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Header } from "./Header.jsx"
 import PageLoader from "./components/PageLoader.jsx"
+import { Home } from "./Home.jsx"
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
