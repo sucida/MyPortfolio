@@ -4,10 +4,38 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  
 }
 
+.loader-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: #fefce8;
+  animation: loader-bounce 1.3s ease-in-out infinite;
+}
 
+.animation-delay-0 {
+  animation-delay: 0ms;
+}
 
+.animation-delay-150 {
+  animation-delay: 150ms;
+}
 
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
 
+@keyframes loader-bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+
+  40% {
+    transform: translateY(-7px);
+    opacity: 1;
+  }
+}
