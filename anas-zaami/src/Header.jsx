@@ -1,16 +1,14 @@
 import "./Header.css";
-import { useState } from "react";
 import Menu from "./components/Menu.jsx";
-import notificationIcon from "./assets/animations/icons/notification.png";
-export function Header() {
-  const [show,setShow] = useState(false);
+
+export function Header({ open, setOpen }) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex h-12 md:h-10 items-center justify-between border-b border-amber-50/10 bg-stone-950 px-4">
       <div className="flex items-center justify-start w-20">
         <a href="https://github.com/sucida" target="_blank">
-          <svg className="hover:opacity-80 duration-300"
+          <svg className="hover:opacity-80 duration-300 md:h-6 h-6"
             xmlns="http://www.w3.org/2000/svg"
-            height={24}
+            
             shape-rendering="geometricPrecision"
             text-rendering="geometricPrecision"
             image-rendering="optimizeQuality"
@@ -99,7 +97,7 @@ export function Header() {
 
       <div className="flex items-center  w-20 justify-end ">
         <div className="md:hidden me-2">
-          <Menu />
+          <Menu open={open} setOpen={setOpen} />
         </div>
         <button 
           onClick={()=>window.open("https://wa.me/212775094615")}

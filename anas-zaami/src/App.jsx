@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import { Header } from "./Header.jsx"
 import PageLoader from "./components/PageLoader.jsx"
-import { Home } from "./Home.jsx"
+import SideBar from "./SideBar.jsx"
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
-
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     const minimumLoadingTime = 1500
     const startedAt = Date.now()
@@ -32,8 +33,9 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header open={open} setOpen={setOpen} />
       {isLoading ? <PageLoader /> : null}
+      <SideBar open={open} />
     </>
   )
 }
