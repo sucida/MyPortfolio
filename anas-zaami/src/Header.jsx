@@ -30,7 +30,7 @@ export function Header({ open, setOpen }) {
         <ul className="flex gap-6 list-none">
           <li>
             <a
-              className="#FFFFFFCC text-[12px] font-extralight hover:opacity-70 duration-300"
+              className="text-white/80 text-[12px] font-extralight hover:opacity-70 duration-300"
               href="#"
             >
               Home
@@ -38,7 +38,7 @@ export function Header({ open, setOpen }) {
           </li>
           <li>
             <a
-              className="#FFFFFFCC text-[12px] font-extralight hover:opacity-70 duration-300"
+              className="text-white/80 text-[12px] font-extralight hover:opacity-70 duration-300"
               href="#"
             >
               About
@@ -46,7 +46,7 @@ export function Header({ open, setOpen }) {
           </li>
           <li>
             <a
-              className="#FFFFFFCC text-[12px] font-extralight hover:opacity-70 duration-300"
+              className="text-white/80 text-[12px] font-extralight hover:opacity-70 duration-300"
               href="#"
             >
               Process
@@ -54,7 +54,7 @@ export function Header({ open, setOpen }) {
           </li>
           <li>
             <a
-              className="#FFFFFFCC text-[12px] font-extralight hover:opacity-70 duration-300"
+              className="text-white/80 text-[12px] font-extralight hover:opacity-70 duration-300"
               href="#"
             >
               Curriculum
@@ -62,7 +62,7 @@ export function Header({ open, setOpen }) {
           </li>
           <li>
             <a
-              className="#FFFFFFCC text-[12px] font-extralight hover:opacity-70 duration-300"
+              className="text-white/80 text-[12px] font-extralight hover:opacity-70 duration-300"
               href="#"
             >
               Portfolio
@@ -70,7 +70,7 @@ export function Header({ open, setOpen }) {
           </li>
           <li>
             <a
-              className="#FFFFFFCC text-[12px] font-extralight hover:opacity-70 duration-300"
+              className="text-white/80 text-[12px] font-extralight hover:opacity-70 duration-300"
               href="#"
             >
               Skills
@@ -78,7 +78,7 @@ export function Header({ open, setOpen }) {
           </li>
           <li>
             <a
-              className="#FFFFFFCC text-[12px] font-extralight hover:opacity-70 duration-300"
+              className="text-white/80 text-[12px] font-extralight hover:opacity-70 duration-300"
               href="#"
             >
               Service
@@ -86,7 +86,7 @@ export function Header({ open, setOpen }) {
           </li>
           <li>
             <a
-              className="#FFFFFFCC text-[12px] font-extralight hover:opacity-70 duration-300"
+              className="text-white/80 text-[12px] font-extralight hover:opacity-70 duration-300"
               href="#"
             >
               Experience
@@ -101,7 +101,7 @@ export function Header({ open, setOpen }) {
         </div>
         <button 
           onClick={()=>window.open("https://wa.me/212775094615")}
-          className="text-white text-[12px] cursor-pointer bg-[#0171E3] px-3.5 py-0.5 rounded-2xl hover:opacity-90 duration-300">
+          className="text-white/80 text-[12px] cursor-pointer bg-[#0171E3] px-3.5 py-0.5 rounded-2xl hover:opacity-90 duration-300">
             Contact
           </button>
       </div>

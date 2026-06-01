@@ -1,4 +1,13 @@
 a {
+  color: #E8E8ED;
+  cursor: pointer;
+  display: flex;
   font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0.196px;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
 }
