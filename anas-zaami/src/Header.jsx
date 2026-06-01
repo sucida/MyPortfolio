@@ -6,7 +6,7 @@ export function Header({ open, setOpen }) {
     <header className="fixed top-0 left-0 right-0 z-50 flex h-12 md:h-10 items-center justify-between border-b border-amber-50/10 bg-stone-950 px-4">
       <div className="flex items-center justify-start w-20">
         <a href="https://github.com/sucida" target="_blank">
-          <svg className="hover:opacity-80 duration-300 md:h-6 h-6"
+          <svg className="hover:opacity-80 duration-300 md:h-5 h-6"
             xmlns="http://www.w3.org/2000/svg"
             
             shape-rendering="geometricPrecision"
