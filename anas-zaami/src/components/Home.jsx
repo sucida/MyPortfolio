@@ -8,7 +8,7 @@ export function Home () {
       
       <div className="flex-1">
         
-        <h1 className="text-white text-6xl font-[400]">
+        <h1 className="text-white text-3xl md:text-6xl font-normal">
         Hello, I'm <span className=''>Zaami Anas</span>
       </h1>
       <br />
