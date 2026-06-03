@@ -4,11 +4,11 @@ import './Home.css';
 export function Home () {
   
   return (
-    <div className="mx-5 my-10 flex justify-center items-center h-[50vh]">
+    <div className="mx-5 my-5 flex justify-center items-center h-[50vh]">
       
       <div className="flex-1">
         
-        <h1 className="text-white text-3xl md:text-6xl font-normal">
+        <h1 className="text-white text-3xl text-center md:text-start md:text-6xl font-normal">
         Hello, I'm <span className=''>Zaami Anas</span>
       </h1>
       <br />
