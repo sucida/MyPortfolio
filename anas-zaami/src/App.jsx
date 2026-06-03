@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Header } from "./components/Header.jsx"
 import PageLoader from "./components/PageLoader.jsx"
 import SideBar from "./components/SideBar.jsx"
-import { Home } from "./components/Home.jsx"
+
 
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
       <Header open={open} setOpen={setOpen} />
       {isLoading ? <PageLoader /> : null}
       <SideBar open={open} />
-      <Home />
+ 
     </>
   )
 }
