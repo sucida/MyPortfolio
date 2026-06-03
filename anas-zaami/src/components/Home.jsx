@@ -4,7 +4,7 @@ import './Home.css';
 export function Home () {
   
   return (
-    <div className="mx-5 md:my-5 flex justify-center items-center h-[50vh]">
+    <div className="mx-5 md:my-5 flex justify-center items-center h-[30vh] md:h-[50vh]">
       
       <div className="flex-1">
         
@@ -14,7 +14,7 @@ export function Home () {
       <br />
 
       
-      <h6 className="text-white tracking-widest text-[14px]  ">
+      <h6 className="text-white tracking-widest text-[14px] text-center md:text-start  ">
         I'm a student UI/UX Designer and Developer I strive to build immersive and beautiful <br></br>web applications through carefully crafted code and user-centric design.
       </h6>
 
