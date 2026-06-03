@@ -4,7 +4,7 @@ import './Home.css';
 export function Home () {
   
   return (
-    <div className="mx-5 my-5 flex justify-center items-center h-[50vh]">
+    <div className="mx-5 md:my-5 flex justify-center items-center h-[50vh]">
       
       <div className="flex-1">
         
