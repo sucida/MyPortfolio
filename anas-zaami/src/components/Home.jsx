@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import LottieModule from "lottie-react";
 import profileAnimation from "../assets/animations/60ea25b4-1170-11ee-9bfa-7fcceb82d8c6.json";
 import { gsap } from "gsap";
@@ -9,6 +9,17 @@ function Home() {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const animationRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(() =>
+    window.matchMedia("(max-width: 639px)").matches,
+  );
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 639px)");
+    const updateMobileState = (event) => setIsMobile(event.matches);
+
+    mobileQuery.addEventListener("change", updateMobileState);
+    return () => mobileQuery.removeEventListener("change", updateMobileState);
+  }, []);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -97,12 +108,15 @@ function Home() {
         className="home-art animation flex min-w-0 w-full items-center justify-center lg:flex-1"
       >
         <Lottie
+          key={isMobile ? "mobile-canvas" : "desktop-svg"}
           animationData={profileAnimation}
           className="home-lottie aspect-square w-[280px] max-w-full sm:w-[330px] md:w-[360px] lg:w-[420px]"
-          renderer="svg"
+          renderer={isMobile ? "canvas" : "svg"}
           rendererSettings={{
             preserveAspectRatio: "xMidYMid meet",
             progressiveLoad: false,
+            clearCanvas: isMobile,
+            dpr: isMobile ? Math.min(window.devicePixelRatio, 2) : 1,
           }}
           loop
           autoplay
