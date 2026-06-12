@@ -4,7 +4,7 @@ import Menu from "./Menu.jsx";
 export function Header({ open, setOpen }) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex h-12 md:h-10 items-center justify-between border-b border-amber-50/10 bg-stone-950 px-4">
-      <div className="flex items-center justify-start w-20">
+      <div className="flex w-auto items-center justify-start lg:w-20">
         <a href="https://github.com/sucida" target="_blank">
           <svg
             className="hover:opacity-80 duration-300 md:h-5 h-6"
@@ -25,7 +25,7 @@ export function Header({ open, setOpen }) {
         </a>
       </div>
 
-      <nav className="hidden min-w-0 flex-1 justify-center md:flex">
+      <nav className="hidden min-w-0 flex-1 justify-center lg:flex">
         <ul className="flex gap-6 list-none">
           <li>
             <a
@@ -94,8 +94,8 @@ export function Header({ open, setOpen }) {
         </ul>
       </nav>
 
-      <div className="flex items-center   w-20 justify-end ">
-        <div className="md:hidden me-2">
+      <div className="flex w-auto items-center justify-end lg:w-20">
+        <div className="me-2 lg:hidden">
           <Menu open={open} setOpen={setOpen} />
         </div>
         <button

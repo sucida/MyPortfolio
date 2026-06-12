@@ -42,3 +42,41 @@
     opacity: 1;
   }
 }
+
+@media (orientation: landscape) and (min-width: 560px) and (max-height: 500px) {
+  .home-hero {
+    min-height: 100svh;
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 4rem 2rem 1.25rem;
+  }
+
+  .home-content,
+  .home-art {
+    flex: 1 1 0;
+  }
+
+  .home-lottie {
+    max-width: min(34vw, 260px);
+  }
+}
+
+@media (max-width: 340px) and (max-height: 650px) {
+  .home-hero {
+    gap: 1rem;
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+  }
+
+  .home-copy p {
+    margin-top: 0.5rem;
+  }
+
+  .home-actions {
+    margin-top: 1rem;
+  }
+
+  .home-lottie {
+    max-width: 230px;
+  }
+}

@@ -76,24 +76,25 @@ function Home() {
   return (
     <section
       ref={sectionRef}
-      className="mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center gap-8 overflow-x-clip pb-1 pt-10 sm:px-8 lg:flex-row lg:gap-12 lg:px-15 lg:py-2"
+      className="home-hero mx-auto flex min-h-svh max-w-7xl flex-col items-center justify-start gap-6 overflow-x-clip px-5 pb-8 pt-28 sm:justify-center sm:gap-8 sm:px-8 sm:pt-20 md:pt-16 lg:flex-row lg:gap-8 lg:px-8 lg:py-12 xl:gap-12 xl:px-15"
     >
       <div
         ref={contentRef}
-        className="flex min-w-0 w-full items-center justify-center lg:flex-1"
+        className="home-content flex min-w-0 w-full items-center justify-center lg:flex-1"
       >
-        <div className="min-w-0 w-full max-w-xl">
-          <h1 className="text-3xl leading-tight text-stone-200 sm:text-4xl lg:text-5xl">
-            Hello, I'm <span className="font-semibold">Anas Zaami</span>
+        <div className="home-copy min-w-0 w-full max-w-md text-center sm:max-w-xl sm:text-left">
+          <h1 className="text-3xl leading-tight text-stone-200 sm:text-4xl lg:text-4xl xl:text-5xl">
+            Hello, I'm{" "}
+            <span className="whitespace-nowrap font-semibold">Anas Zaami</span>
           </h1>
 
-          <p className="mt-3 max-w-2xl break-words text-sm leading-6 text-stone-300 sm:text-[15px]">
+          <p className="mx-auto mt-3 max-w-sm text-[13px] leading-6 text-stone-300 sm:mx-0 sm:max-w-2xl sm:text-[15px]">
             I'm a student UI/UX Designer and Developer. I strive to build
             immersive and beautiful web applications through carefully crafted
-            code and user-centric design.
+            code.
           </p>
 
-          <div className="mt-5 flex flex-wrap gap-3">
+          <div className="home-actions mt-5 flex flex-wrap justify-center gap-3 sm:justify-start">
             <button className="cursor-pointer rounded-2xl bg-[#0170E3] px-4 py-1 text-[14px] text-stone-200">
               Contact
             </button>
@@ -106,14 +107,14 @@ function Home() {
 
       <div
         ref={animationRef}
-        className="animation flex min-w-0 w-full items-center justify-center lg:flex-1"
+        className="home-art animation flex min-w-0 w-full items-center justify-center lg:flex-1"
       >
         <Lottie
-          key={isMobile ? "mobile-canvas" : "desktop-svg"}
+          key="profile-animation"
           lottieRef={lottieRef}
           animationData={profileAnimation}
-          className="h-auto w-full max-w-[250px] sm:max-w-[330px] md:max-w-[360px] lg:max-w-[420px]"
-          renderer={isMobile ? "canvas" : "svg"}
+          className="home-lottie h-auto w-full max-w-[280px] sm:max-w-[330px] md:max-w-[360px] lg:max-w-[420px]"
+          renderer="svg"
           rendererSettings={{
             preserveAspectRatio: "xMidYMid meet",
             progressiveLoad: isMobile,
