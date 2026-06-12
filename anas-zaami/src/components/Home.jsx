@@ -97,9 +97,8 @@ function Home() {
         className="home-art animation flex min-w-0 w-full items-center justify-center lg:flex-1"
       >
         <Lottie
-          key="profile-animation"
           animationData={profileAnimation}
-          className="home-lottie h-auto w-full max-w-[280px] sm:max-w-[330px] md:max-w-[360px] lg:max-w-[420px]"
+          className="home-lottie aspect-square w-[280px] max-w-full sm:w-[330px] md:w-[360px] lg:w-[420px]"
           renderer="svg"
           rendererSettings={{
             preserveAspectRatio: "xMidYMid meet",
