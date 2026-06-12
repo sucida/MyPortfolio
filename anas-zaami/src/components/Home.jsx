@@ -1,9 +1,30 @@
+import { useEffect, useRef, useState } from "react";
 import LottieModule from "lottie-react";
 import profileAnimation from "../assets/animations/60ea25b4-1170-11ee-9bfa-7fcceb82d8c6.json";
 
 const Lottie = LottieModule.default ?? LottieModule;
 
 function Home() {
+  const lottieRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(() =>
+    window.matchMedia("(max-width: 639px)").matches,
+  );
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 639px)");
+    const updateMobileState = (event) => setIsMobile(event.matches);
+
+    mobileQuery.addEventListener("change", updateMobileState);
+    return () => mobileQuery.removeEventListener("change", updateMobileState);
+  }, []);
+
+  const optimizeMobileAnimation = () => {
+    if (!isMobile || !lottieRef.current) return;
+
+    lottieRef.current.setSubframe(false);
+    lottieRef.current.setSpeed(0.8);
+  };
+
   return (
     <section className="mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center gap-8 px-5 pb-10 pt-20 sm:px-8 lg:flex-row lg:gap-12 lg:px-15 lg:py-16">
       <div className="flex min-w-0 w-full items-center justify-center lg:flex-1">
@@ -31,8 +52,17 @@ function Home() {
 
       <div className="flex min-w-0 w-full items-center justify-center lg:flex-1">
         <Lottie
+          key={isMobile ? "mobile-canvas" : "desktop-svg"}
+          lottieRef={lottieRef}
           animationData={profileAnimation}
           className="h-auto w-full max-w-[250px] sm:max-w-[330px] md:max-w-[360px] lg:max-w-[420px]"
+          renderer={isMobile ? "canvas" : "svg"}
+          rendererSettings={{
+            preserveAspectRatio: "xMidYMid meet",
+            progressiveLoad: isMobile,
+            clearCanvas: true,
+          }}
+          onDOMLoaded={optimizeMobileAnimation}
           loop
           autoplay
           role="img"
