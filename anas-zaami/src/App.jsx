@@ -38,7 +38,7 @@ function App() {
       <Header open={open} setOpen={setOpen} />
       {isLoading ? <PageLoader /> : null}
       <SideBar open={open} />
-      <Home/>
+      {!isLoading ? <Home /> : null}
  
     </>
   )
