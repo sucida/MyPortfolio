@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import LottieModule from "lottie-react";
 import profileAnimation from "../assets/animations/60ea25b4-1170-11ee-9bfa-7fcceb82d8c6.json";
 import { gsap } from "gsap";
@@ -9,25 +9,6 @@ function Home() {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const animationRef = useRef(null);
-  const lottieRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(() =>
-    window.matchMedia("(max-width: 639px)").matches,
-  );
-
-  useEffect(() => {
-    const mobileQuery = window.matchMedia("(max-width: 639px)");
-    const updateMobileState = (event) => setIsMobile(event.matches);
-
-    mobileQuery.addEventListener("change", updateMobileState);
-    return () => mobileQuery.removeEventListener("change", updateMobileState);
-  }, []);
-
-  const optimizeMobileAnimation = () => {
-    if (!isMobile || !lottieRef.current) return;
-
-    lottieRef.current.setSubframe(false);
-    lottieRef.current.setSpeed(0.8);
-  };
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -37,6 +18,7 @@ function Home() {
 
       if (reducedMotion) return;
 
+      const isMobile = window.matchMedia("(max-width: 639px)").matches;
       const timeline = gsap.timeline({
         defaults: {
           duration: 1.2,
@@ -59,11 +41,16 @@ function Home() {
         )
         .fromTo(
           animationRef.current,
-          { x: 120, autoAlpha: 0, scale: 0.96 },
+          {
+            x: isMobile ? 48 : 120,
+            autoAlpha: 0,
+            scale: isMobile ? 1 : 0.96,
+          },
           {
             x: 0,
             autoAlpha: 1,
             scale: 1,
+            force3D: !isMobile,
             clearProps: "transform,opacity,visibility",
           },
           0.08,
@@ -111,16 +98,13 @@ function Home() {
       >
         <Lottie
           key="profile-animation"
-          lottieRef={lottieRef}
           animationData={profileAnimation}
           className="home-lottie h-auto w-full max-w-[280px] sm:max-w-[330px] md:max-w-[360px] lg:max-w-[420px]"
           renderer="svg"
           rendererSettings={{
             preserveAspectRatio: "xMidYMid meet",
-            progressiveLoad: isMobile,
-            clearCanvas: true,
+            progressiveLoad: false,
           }}
-          onDOMLoaded={optimizeMobileAnimation}
           loop
           autoplay
           role="img"
