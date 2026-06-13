@@ -77,10 +77,11 @@ export function Header({ open, setOpen }) {
           </li>
           <li>
             <a
+              
               className="text-white/80 text-[12px] font-extralight hover:opacity-70 duration-300"
-              href="#"
+              href="https://aywgo.com/"
             >
-              Service
+              Aywgo
             </a>
           </li>
           <li>

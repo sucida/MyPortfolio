@@ -5,8 +5,10 @@ import "./Home.css";
 
 const lottie = lottieModule.default ?? lottieModule;
 
-function ProfileAnimation() {
+function ProfileAnimation({ paused }) {
   const containerRef = useRef(null);
+  const updatePlaybackRef = useRef(null);
+  const pausedRef = useRef(paused);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -29,14 +31,19 @@ function ProfileAnimation() {
         dpr: Math.min(window.devicePixelRatio, 2),
       },
     });
-
     const updatePlayback = () => {
-      if (reducedMotion || document.hidden || !isVisible) {
+      if (
+        pausedRef.current ||
+        reducedMotion ||
+        document.hidden ||
+        !isVisible
+      ) {
         animation.pause();
       } else {
         animation.play();
       }
     };
+    updatePlaybackRef.current = updatePlayback;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -52,9 +59,15 @@ function ProfileAnimation() {
     return () => {
       observer.disconnect();
       document.removeEventListener("visibilitychange", updatePlayback);
+      updatePlaybackRef.current = null;
       animation.destroy();
     };
   }, []);
+
+  useEffect(() => {
+    pausedRef.current = paused;
+    updatePlaybackRef.current?.();
+  }, [paused]);
 
   return (
     <div
@@ -66,7 +79,7 @@ function ProfileAnimation() {
   );
 }
 
-function Home() {
+function Home({ menuOpen = false }) {
   return (
     <section
       className="home-hero mx-auto flex min-h-svh max-w-7xl flex-col items-center justify-start gap-6 overflow-x-clip px-5 pb-8 pt-28 sm:justify-center sm:gap-8 sm:px-8 sm:pt-20 md:pt-16 lg:flex-row lg:gap-8 lg:px-8 lg:py-12 xl:gap-12 xl:px-15"
@@ -96,7 +109,7 @@ function Home() {
       </div>
 
       <div className="home-art animation flex min-w-0 w-full items-center justify-center lg:flex-1">
-        <ProfileAnimation />
+        <ProfileAnimation paused={menuOpen} />
       </div>
     </section>
   );
